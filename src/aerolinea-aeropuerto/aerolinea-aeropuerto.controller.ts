@@ -4,8 +4,10 @@ import { AeropuertoEntity } from 'src/aeropuerto/aeropuerto.entity';
 import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseGuards, UseInterceptors } from '@nestjs/common';
 import { AeropuertoDto } from 'src/aeropuerto/aeropuerto.dto/aeropuerto.dto';
 import { AerolineaAeropuertoService } from './aerolinea-aeropuerto.service';
+import { BusinessErrorsInterceptor } from 'src/shared/interceptors/business-errors/business-errors.interceptor';
 
 @Controller('aerolineas')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class AerolineaAeropuertoController {
 
     constructor(private readonly aerolineaAeropuertoService: AerolineaAeropuertoService){}

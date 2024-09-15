@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "a2047c77-0a42-42a9-b91b-b750682e6751",
+		"name": "Aviación",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19972969",
+		"_collection_link": "https://lunar-rocket-317713.postman.co/workspace/Web-Back~eae0f806-dd37-45b9-879a-397de592897b/collection/19972969-a2047c77-0a42-42a9-b91b-b750682e6751?action=share&source=collection_link&creator=19972969"
+	},
+	"item": [
+		{
+			"name": "Aeropuertos",
+			"item": [
+				{
+					"name": "Crear nuevo aeropuerto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aeropuerto_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"col\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear nuevo aeropuerto invalido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"colo\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos los aeropuertos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un aeropuerto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un aeropuerto que no existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/65fe4965-c0ed-45b1-b442-2248f23f4674",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"65fe4965-c0ed-45b1-b442-2248f23f4674"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un aeropuerto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El chaparral\",\r\n    \"codigo\": \"col\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un aeropuerto que no existe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El chaparral\",\r\n    \"codigo\": \"col\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/a1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aeropuerto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aeropuerto que no existe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aerolineas",
+			"item": [
+				{
+					"name": "Crear aerolinea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aerolinea_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"prueba\",\r\n    \"descripcion\": \"prueba\",\r\n    \"web\": \"www.aviancol.com\",\r\n    \"fechaFundacion\": \"2024/05/20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear aerolinea invalida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aerolinea_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"prueba\",\r\n    \"descripcion\": \"prueba\",\r\n    \"web\": \"www.aviancol.com\",\r\n    \"fechaFundacion\": \"2025/05/20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas las aerolineas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una aerolinea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una aerolinea con id invalido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar una aerolinea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"aviana\",\r\n    \"descripcion\": \"prueba\",\r\n    \"web\": \"www.aviancolombiana.com\",\r\n    \"fechaFundacion\": \"2024/05/20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar una aerolinea con id que no existe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"aviana\",\r\n    \"descripcion\": \"prueba\",\r\n    \"web\": \"www.aviancolombiana.com\",\r\n    \"fechaFundacion\": \"2024/05/20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/34",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aerolinea",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aerolinea Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/-1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aerolineas/Aeropuertos",
+			"item": [
+				{
+					"name": "Crear nuevo aeropuerto 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aeropuerto_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"col\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear nuevo aeropuerto 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aeropuerto1_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El dorado\",\r\n    \"codigo\": \"col\",\r\n    \"pais\": \"colombia\",\r\n    \"ciudad\": \"bogota\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear aerolinea Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"aerolinea_id\",data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"prueba\",\r\n    \"descripcion\": \"prueba\",\r\n    \"web\": \"www.aviancol.com\",\r\n    \"fechaFundacion\": \"2024/05/20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asociar un aeropuerto a una aerolinea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asociar un aeropuerto que no existe a una aerolinea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/65fe4965-c0ed-45b1-b442-2248f23f4674",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"65fe4965-c0ed-45b1-b442-2248f23f4674"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener aeropuertos de una aerolinea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener aeropuerto de una aerolinea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener aeropuerto que no existe de una aerolinea",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/{{aeropuerto1_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"{{aeropuerto1_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar aeropuertos de una aerolinea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"nombre\": \"El dorado\",\r\n        \"codigo\": \"col\",\r\n        \"pais\": \"colombia\",\r\n        \"ciudad\": \"bogota\",\r\n        \"id\": \"9ced136f-a927-4dd3-809e-42a0a18e5c51\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar aeropuertos de una aerolinea Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"nombre\": \"El dorado\",\r\n        \"codigo\": \"col\",\r\n        \"pais\": \"colombia\",\r\n        \"ciudad\": \"bogota\",\r\n        \"id\": \"9ced136f-a927-4dd3-809e-42a0a18e\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aeropuerto asociado a una aerolinea",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/{{aeropuerto_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"{{aeropuerto_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar aeropuerto asociado a una aerolinea Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/aerolineas/{{aerolinea_id}}/aeropuertos/{{aeropuerto1_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"aerolineas",
+								"{{aerolinea_id}}",
+								"aeropuertos",
+								"{{aeropuerto1_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

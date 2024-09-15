@@ -7,7 +7,6 @@ import { AerolineaDto } from './aerolinea.dto/aerolinea.dto';
 import { plainToInstance } from 'class-transformer';
 
 @Controller('aerolineas')
-
 @UseInterceptors(BusinessErrorsInterceptor)
 export class AerolineaController {
 
